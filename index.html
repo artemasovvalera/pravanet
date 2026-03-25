@@ -947,92 +947,26 @@
     .step { padding: 16px; }
   }
 
-  /* ── IMAGE PLACEHOLDERS ── */
-  .img-ph {
-    position: relative;
-    background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6e 100%);
-    border: 2px dashed rgba(201,168,76,0.35);
-    border-radius: 16px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .img-ph:hover { border-color: var(--gold); box-shadow: 0 0 30px rgba(201,168,76,0.2); }
-  .img-ph::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 20px,
-      rgba(201,168,76,0.03) 20px,
-      rgba(201,168,76,0.03) 40px
-    );
-  }
-  .img-ph-inner {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  /* ── REAL IMAGES ── */
+  .site-img {
+    width: 100%;
     height: 100%;
-    padding: 24px;
-    text-align: center;
-    gap: 12px;
-  }
-  .img-ph-icon {
-    width: 56px; height: 56px;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 4px;
-  }
-  .img-ph-icon svg { width: 26px; height: 26px; color: var(--gold); opacity: 0.7; }
-  .img-ph-label {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .img-ph-desc {
-    font-size: 0.75rem;
-    color: var(--grey-text);
-    line-height: 1.5;
-    max-width: 220px;
-  }
-  .img-ph-tag {
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.2);
-    color: var(--gold);
-    font-size: 0.68rem;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 50px;
-    letter-spacing: 0.05em;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: inherit;
+    transition: transform 0.5s ease;
   }
 
-  /* Tooltip on hover */
-  .img-ph[data-tip]:hover::after {
-    content: attr(data-tip);
-    position: absolute;
-    bottom: 12px; left: 50%;
-    transform: translateX(-50%);
-    background: rgba(10,22,40,0.95);
-    border: 1px solid rgba(201,168,76,0.3);
-    color: var(--gold);
-    font-size: 0.72rem;
-    padding: 6px 14px;
-    border-radius: 8px;
-    white-space: nowrap;
-    z-index: 10;
-    pointer-events: none;
+  .img-wrap {
+    overflow: hidden;
+    border-radius: 16px;
+    position: relative;
   }
 
-  /* ── HERO PHOTO PLACEHOLDER ── */
+  .img-wrap:hover .site-img { transform: scale(1.04); }
+
+  /* ── HERO PHOTO ── */
   .hero-photo {
     position: absolute;
     right: 4%;
@@ -1041,15 +975,25 @@
     width: min(380px, 38vw);
     height: min(500px, 55vh);
     z-index: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.2);
+  }
+
+  .hero-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, transparent 50%, rgba(10,22,40,0.6) 100%);
+    pointer-events: none;
+    border-radius: 20px;
   }
 
   @media (max-width: 900px) { .hero-photo { display: none; } }
 
   /* ── PROMO STRIP ── */
-  #promo {
-    padding: 0 5% 0;
-    position: relative; z-index: 1;
-  }
+  #promo { padding: 0 5% 0; position: relative; z-index: 1; }
+
   .promo-inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -1057,11 +1001,14 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
-  .promo-ph { height: 220px; }
+
+  .promo-ph { height: 220px; border-radius: 16px; overflow: hidden; }
+
+  .promo-ph .site-img { border-radius: 16px; }
 
   @media (max-width: 700px) {
     .promo-inner { grid-template-columns: 1fr; }
-    .promo-ph { height: 160px; }
+    .promo-ph { height: 200px; }
   }
 
   /* ── WHY PHOTO ── */
@@ -1071,11 +1018,17 @@
     gap: 60px;
     align-items: center;
   }
-  .why-photo { height: 460px; }
+
+  .why-photo {
+    height: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.15);
+  }
 
   @media (max-width: 1000px) {
     .why-layout { grid-template-columns: 1fr; }
-    .why-photo { height: 260px; order: -1; }
+    .why-photo { height: 280px; order: -1; }
   }
 
   /* ── REVIEWS PHOTO ── */
@@ -1083,7 +1036,10 @@
     height: 180px;
     margin-bottom: 20px;
     border-radius: 12px;
+    overflow: hidden;
   }
+
+  .review-card-photo .site-img { border-radius: 12px; }
 
   /* ── DIVIDER ── */
   .divider {
@@ -1119,15 +1075,8 @@
     </button>
   </div>
   <!-- HERO PHOTO -->
-  <div class="hero-photo img-ph" data-tip="📸 Замените на фото: юрист в костюме за рабочим столом или в зале суда">
-    <div class="img-ph-inner">
-      <div class="img-ph-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
-      </div>
-      <div class="img-ph-label">Фото специалиста</div>
-      <div class="img-ph-desc">Профессиональный портрет юриста — в костюме, за столом или в зале суда</div>
-      <div class="img-ph-tag">📐 380 × 500 px</div>
-    </div>
+  <div class="hero-photo">
+    <img src="Hero.jpg" alt="Юридическое бюро ПРАВА.НЕТ — профессиональная помощь" class="site-img" style="object-position: top center;">
   </div>
 
   <div class="hero-scroll">
@@ -1167,29 +1116,14 @@
       <h2>Мы рядом на <span class="gold">каждом этапе</span></h2>
     </div>
     <div class="promo-inner">
-      <div class="promo-ph img-ph reveal" data-tip="📸 Фото: юрист консультирует клиента за столом">
-        <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-          <div class="img-ph-label">Консультация</div>
-          <div class="img-ph-desc">Юрист и клиент за рабочим столом, обсуждение документов</div>
-          <div class="img-ph-tag">📐 400 × 220 px</div>
-        </div>
+      <div class="promo-ph reveal">
+        <img src="promo-1.jpg" alt="Юридическая консультация" class="site-img">
       </div>
-      <div class="promo-ph img-ph reveal" data-tip="📸 Фото: зал суда или подписание документов">
-        <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M3 7v1a3 3 0 006 0V7m0 1a3 3 0 006 0V7m0 1a3 3 0 006 0V7H3l2-4h14l2 4"/><path d="M5 21V11M19 21V11M12 21V11"/></svg></div>
-          <div class="img-ph-label">В суде</div>
-          <div class="img-ph-desc">Зал судебного заседания или выступление юриста</div>
-          <div class="img-ph-tag">📐 400 × 220 px</div>
-        </div>
+      <div class="promo-ph reveal">
+        <img src="promo-2.jpg" alt="В суде" class="site-img">
       </div>
-      <div class="promo-ph img-ph reveal" data-tip="📸 Фото: счастливый клиент, рукопожатие или документ с решением суда">
-        <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></div>
-          <div class="img-ph-label">Результат</div>
-          <div class="img-ph-desc">Довольный клиент, рукопожатие или решение суда с печатью</div>
-          <div class="img-ph-tag">📐 400 × 220 px</div>
-        </div>
+      <div class="promo-ph reveal">
+        <img src="promo-3.jpg" alt="Результат — победа в деле" class="site-img">
       </div>
     </div>
   </div>
@@ -1403,13 +1337,8 @@
         <p>Дистанционное ведение дел, электронный документооборот, представительство в судах по доверенности — где бы вы ни находились.</p>
       </div>
       </div><!-- end why-grid -->
-      <div class="why-photo img-ph reveal" data-tip="📸 Фото: команда юристов, офис или юрист с папкой документов">
-        <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>
-          <div class="img-ph-label">Фото команды / офиса</div>
-          <div class="img-ph-desc">Юристы бюро или рабочая атмосфера офиса, деловой стиль</div>
-          <div class="img-ph-tag">📐 420 × 460 px</div>
-        </div>
+      <div class="why-photo reveal">
+        <img src="why-us.jpg" alt="Команда юридического бюро ПРАВА.НЕТ" class="site-img">
       </div>
     </div><!-- end why-layout -->
   </div>
@@ -1426,12 +1355,8 @@
     </div>
     <div class="reviews-grid">
       <div class="review-card reveal">
-        <div class="review-card-photo img-ph" data-tip="📸 Фото: автомобиль после ДТП или документы ОСАГО">
-          <div class="img-ph-inner">
-            <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16,8 20,8 23,11 23,16 16,16 16,8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-            <div class="img-ph-label">ДТП / ОСАГО</div>
-            <div class="img-ph-tag">📐 300 × 180 px</div>
-          </div>
+        <div class="review-card-photo">
+          <img src="review-1.jpg" alt="ДТП / ОСАГО" class="site-img">
         </div>
         <div class="review-quote">"</div>, хотя ущерб был явно больше. Специалист сразу сказал — это занижение, идём в суд. После решения получила компенсацию в несколько раз больше. Очень рада, что не согласилась сразу.</p>
         <div class="review-footer">
@@ -1443,12 +1368,8 @@
         </div>
       </div>
       <div class="review-card reveal">
-        <div class="review-card-photo img-ph" data-tip="📸 Фото: затопленная квартира или документы УК">
-          <div class="img-ph-inner">
-            <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
-            <div class="img-ph-label">ЖКХ / Затопление</div>
-            <div class="img-ph-tag">📐 300 × 180 px</div>
-          </div>
+        <div class="review-card-photo">
+          <img src="review-2.jpg" alt="ЖКХ / Затопление" class="site-img">
         </div>
         <div class="review-quote">"</div>
         <p class="review-text">Управляющая компания отказывалась признавать вину за затопление квартиры. Думал, что придётся всё оплачивать самому. Взыскали стоимость ремонта, плюс моральный ущерб. Работали чётко, без лишних слов.</p>
@@ -1461,12 +1382,8 @@
         </div>
       </div>
       <div class="review-card reveal">
-        <div class="review-card-photo img-ph" data-tip="📸 Фото: рабочее место, трудовой договор или рукопожатие">
-          <div class="img-ph-inner">
-            <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
-            <div class="img-ph-label">Трудовой спор</div>
-            <div class="img-ph-tag">📐 300 × 180 px</div>
-          </div>
+        <div class="review-card-photo">
+          <img src="review-3.jpg" alt="Трудовой спор" class="site-img">
         </div>
         <div class="review-quote">"</div>
         <p class="review-text">Работодатель задержал зарплату и пытался уволить без выплат. Обратилась, юрист разобрался быстро. Компания заплатила всё до копейки ещё до суда — просто увидев претензию.</p>
