@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ПРАВА.НЕТ — Юридическое бюро | Бесплатная консультация</title>
+<meta name="description" content="Профессиональная юридическая помощь: ДТП, ОСАГО, КАСКО, защита прав потребителей, моральный ущерб. Работаем по всей России. Первая консультация бесплатно.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #112240;
+    --navy-light: #1a3a6e;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e8c0;
+    --white: #ffffff;
+    --grey-light: #f4f6fa;
+    --grey-text: #8892a4;
+    --text: #e8eaf0;
+    --accent: #2d6cdf;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 5%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--white); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,168,76,0.4); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 100px 5% 60px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(29,82,161,0.25) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, #0d1f3c 50%, var(--navy) 100%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.6s ease both;
+  }
+
+  .hero-badge svg { width: 14px; height: 14px; }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 10px;
+    animation: fadeInUp 0.6s 0.1s ease both;
+  }
+
+  h1 .gold { color: var(--gold); }
+
+  .hero-sub {
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 25px;
+    animation: fadeInUp 0.6s 0.2s ease both;
+  }
+
+  .hero-desc {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: var(--grey-text);
+    max-width: 580px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.6s 0.3s ease both;
+    font-weight: 400;
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--navy);
+    padding: 18px 36px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: all 0.3s;
+    box-shadow: 0 10px 40px rgba(201,168,76,0.35);
+    animation: fadeInUp 0.6s 0.4s ease both;
+    cursor: pointer;
+    border: none;
+  }
+
+  .hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 50px rgba(201,168,76,0.5);
+  }
+
+  .hero-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--grey-text);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+
+  .hero-scroll svg { width: 20px; height: 20px; }
+
+  /* ── STATS ── */
+  #stats {
+    position: relative;
+    z-index: 1;
+    padding: 0 5%;
+  }
+
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--navy-mid) 0%, #162d5a 100%);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 20px;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    transform: translateY(-50px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 10px;
+    position: relative;
+  }
+
+  .stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 20%; height: 60%;
+    width: 1px;
+    background: rgba(201,168,76,0.2);
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--grey-text);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section { position: relative; z-index: 1; padding: 90px 5%; }
+
+  .section-tag {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  h2 .gold { color: var(--gold); }
+
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--grey-text);
+    max-width: 580px;
+    margin-bottom: 60px;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--navy); }
+
+  .services-header { text-align: center; }
+  .services-header .section-lead { margin: 0 auto 60px; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: linear-gradient(145deg, var(--navy-mid) 0%, #162d5a 100%);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 16px;
+    padding: 36px 30px;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,168,76,0.35);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .card:hover::before { transform: scaleX(1); }
+
+  .card-icon {
+    width: 52px; height: 52px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+  }
+
+  .card:hover .card-icon {
+    background: rgba(201,168,76,0.18);
+    transform: scale(1.08);
+  }
+
+  .card-icon svg { width: 26px; height: 26px; color: var(--gold); }
+
+  .card-rank {
+    position: absolute;
+    top: 20px; right: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: rgba(201,168,76,0.4);
+    letter-spacing: 0.1em;
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    color: var(--grey-text);
+    line-height: 1.7;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: gap 0.2s;
+    cursor: pointer;
+  }
+
+  .card-link:hover { gap: 10px; }
+  .card-link svg { width: 14px; height: 14px; }
+
+  /* ── HOW WE WORK ── */
+  #process {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 6px; }
+
+  .step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 24px;
+    border-radius: 14px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .step:hover {
+    background: rgba(201,168,76,0.05);
+    border-radius: 14px;
+  }
+
+  .step-num {
+    min-width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    font-weight: 900;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .step-content p { font-size: 0.88rem; color: var(--grey-text); }
+
+  .process-visual {
+    background: linear-gradient(145deg, var(--navy-mid), #162d5a);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+  }
+
+  .process-visual svg { width: 80px; height: 80px; color: var(--gold); margin-bottom: 24px; opacity: 0.8; }
+  .process-visual h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--white); margin-bottom: 16px; }
+  .process-visual p { font-size: 0.9rem; color: var(--grey-text); margin-bottom: 30px; }
+
+  .free-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold);
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+
+  /* ── WHY US ── */
+  #why { background: var(--navy); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .why-item {
+    padding: 32px;
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 14px;
+    transition: all 0.3s;
+  }
+
+  .why-item:hover {
+    border-color: rgba(201,168,76,0.3);
+    transform: translateY(-4px);
+  }
+
+  .why-icon {
+    width: 48px; height: 48px;
+    background: rgba(201,168,76,0.1);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .why-icon svg { width: 24px; height: 24px; color: var(--gold); }
+
+  .why-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .why-item p { font-size: 0.88rem; color: var(--grey-text); line-height: 1.65; }
+
+  /* ── REVIEWS ── */
+  #reviews {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 24px;
+  }
+
+  .review-card {
+    background: linear-gradient(145deg, var(--navy-mid), #162d5a);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+  }
+
+  .review-quote {
+    font-size: 3rem;
+    color: var(--gold);
+    opacity: 0.3;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .review-text { font-size: 0.92rem; color: var(--text); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+
+  .review-footer { display: flex; align-items: center; justify-content: space-between; }
+  .review-author { font-weight: 600; font-size: 0.88rem; color: var(--white); }
+  .review-case { font-size: 0.78rem; color: var(--grey-text); margin-top: 3px; }
+
+  .review-amount {
+    background: rgba(201,168,76,0.12);
+    color: var(--gold);
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* ── FAQ ── */
+  #faq { background: var(--navy); }
+
+  .faq-grid { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+  .faq-item {
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .faq-item.open { border-color: rgba(201,168,76,0.3); }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 26px;
+    cursor: pointer;
+    gap: 16px;
+  }
+
+  .faq-question span {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  .faq-icon {
+    width: 28px; height: 28px;
+    background: rgba(201,168,76,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .faq-item.open .faq-icon { background: var(--gold); transform: rotate(45deg); }
+  .faq-icon svg { width: 14px; height: 14px; color: var(--gold); }
+  .faq-item.open .faq-icon svg { color: var(--navy); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .faq-answer-inner {
+    padding: 0 26px 22px;
+    font-size: 0.9rem;
+    color: var(--grey-text);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT / CHAT ── */
+  #contact {
+    background: linear-gradient(135deg, var(--navy-mid) 0%, #162d5a 100%);
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-info h2 { margin-bottom: 16px; }
+  .contact-info .section-lead { margin-bottom: 40px; }
+
+  .contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 12px;
+  }
+
+  .contact-item-icon {
+    width: 40px; height: 40px;
+    background: rgba(201,168,76,0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-item-icon svg { width: 20px; height: 20px; color: var(--gold); }
+
+  .contact-item-text { font-size: 0.9rem; color: var(--text); }
+  .contact-item-text strong { display: block; font-size: 0.75rem; color: var(--grey-text); font-weight: 500; margin-bottom: 2px; }
+
+  .tg-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #229ED9;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .tg-btn:hover { background: #1a8ab8; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(34,158,217,0.3); }
+  .tg-btn svg { width: 22px; height: 22px; }
+
+  /* ── CHAT WIDGET ── */
+  .chat-widget {
+    background: var(--navy);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+  }
+
+  .chat-header {
+    background: linear-gradient(90deg, var(--navy-light), #1a3a6e);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .chat-avatar {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .chat-avatar svg { width: 22px; height: 22px; color: var(--navy); }
+
+  .chat-header-info h4 { font-size: 0.95rem; color: var(--white); font-weight: 700; }
+  .chat-online { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: #4ade80; }
+  .chat-online::before { content: ''; width: 7px; height: 7px; background: #4ade80; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+
+  .chat-messages {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 200px;
+    max-height: 280px;
+    overflow-y: auto;
+  }
+
+  .msg {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    animation: msgIn 0.3s ease;
+  }
+
+  .msg-bot {
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.1);
+    color: var(--text);
+    border-radius: 16px 16px 16px 4px;
+    align-self: flex-start;
+  }
+
+  .msg-user {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    font-weight: 600;
+    border-radius: 16px 16px 4px 16px;
+    align-self: flex-end;
+  }
+
+  .msg-time { font-size: 0.7rem; color: var(--grey-text); margin-top: 4px; }
+
+  .chat-input-area {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .chat-input {
+    flex: 1;
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: var(--text);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    resize: none;
+    min-height: 46px;
+    max-height: 120px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .chat-input:focus { border-color: rgba(201,168,76,0.4); }
+  .chat-input::placeholder { color: var(--grey-text); }
+
+  .chat-send {
+    width: 46px; height: 46px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border: none;
+    border-radius: 12px;
+    color: var(--navy);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .chat-send:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(201,168,76,0.4); }
+  .chat-send svg { width: 20px; height: 20px; }
+
+  .chat-disclaimer { padding: 10px 20px 14px; font-size: 0.72rem; color: var(--grey-text); text-align: center; }
+
+  /* ── FLOATING CHAT BUTTON ── */
+  .float-chat {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  .float-tg {
+    width: 60px; height: 60px;
+    background: #229ED9;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 30px rgba(34,158,217,0.5);
+    text-decoration: none;
+    transition: all 0.3s;
+    animation: floatIn 0.5s 1s ease both;
+  }
+
+  .float-tg:hover { transform: scale(1.12); box-shadow: 0 12px 40px rgba(34,158,217,0.6); }
+  .float-tg svg { width: 30px; height: 30px; color: white; }
+
+  .float-label {
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--white);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s;
+  }
+
+  .float-chat:hover .float-label { opacity: 1; transform: translateX(0); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060f1f;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 40px 5%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .footer-logo span { color: var(--white); }
+
+  .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+  .footer-links a { color: var(--grey-text); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  footer p { font-size: 0.8rem; color: var(--grey-text); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes floatIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .stats-inner {
+      grid-template-columns: repeat(2, 1fr);
+      transform: translateY(-30px);
+      padding: 36px 24px;
+    }
+
+    .stat-item:nth-child(2)::after { display: none; }
+
+    .process-grid { grid-template-columns: 1fr; }
+    .process-visual { order: -1; padding: 36px 24px; }
+
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 4%; }
+    .nav-logo { font-size: 1.2rem; }
+    .nav-cta { padding: 8px 16px; font-size: 0.8rem; }
+
+    #hero { padding: 90px 4% 50px; }
+
+    .stats-inner {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 28px 16px;
+      border-radius: 16px;
+      transform: translateY(-20px);
+    }
+
+    .stat-item::after { display: none !important; }
+    .stat-item:nth-child(odd) { border-right: 1px solid rgba(201,168,76,0.2); }
+
+    section { padding: 60px 4%; }
+
+    .services-grid, .why-grid, .reviews-grid { grid-template-columns: 1fr; }
+
+    .hero-btn { padding: 15px 26px; font-size: 0.95rem; }
+
+    .float-chat { bottom: 20px; right: 20px; }
+    .float-tg { width: 54px; height: 54px; }
+
+    .step { padding: 16px; }
+  }
+
+  /* ── IMAGE PLACEHOLDERS ── */
+  .img-ph {
+    position: relative;
+    background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6e 100%);
+    border: 2px dashed rgba(201,168,76,0.35);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .img-ph:hover { border-color: var(--gold); box-shadow: 0 0 30px rgba(201,168,76,0.2); }
+  .img-ph::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(201,168,76,0.03) 20px,
+      rgba(201,168,76,0.03) 40px
+    );
+  }
+  .img-ph-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 24px;
+    text-align: center;
+    gap: 12px;
+  }
+  .img-ph-icon {
+    width: 56px; height: 56px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 4px;
+  }
+  .img-ph-icon svg { width: 26px; height: 26px; color: var(--gold); opacity: 0.7; }
+  .img-ph-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .img-ph-desc {
+    font-size: 0.75rem;
+    color: var(--grey-text);
+    line-height: 1.5;
+    max-width: 220px;
+  }
+  .img-ph-tag {
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--gold);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Tooltip on hover */
+  .img-ph[data-tip]:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: 12px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10,22,40,0.95);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    font-size: 0.72rem;
+    padding: 6px 14px;
+    border-radius: 8px;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* ── HERO PHOTO PLACEHOLDER ── */
+  .hero-photo {
+    position: absolute;
+    right: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(380px, 38vw);
+    height: min(500px, 55vh);
+    z-index: 1;
+  }
+
+  @media (max-width: 900px) { .hero-photo { display: none; } }
+
+  /* ── PROMO STRIP ── */
+  #promo {
+    padding: 0 5% 0;
+    position: relative; z-index: 1;
+  }
+  .promo-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .promo-ph { height: 220px; }
+
+  @media (max-width: 700px) {
+    .promo-inner { grid-template-columns: 1fr; }
+    .promo-ph { height: 160px; }
+  }
+
+  /* ── WHY PHOTO ── */
+  .why-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 60px;
+    align-items: center;
+  }
+  .why-photo { height: 460px; }
+
+  @media (max-width: 1000px) {
+    .why-layout { grid-template-columns: 1fr; }
+    .why-photo { height: 260px; order: -1; }
+  }
+
+  /* ── REVIEWS PHOTO ── */
+  .review-card-photo {
+    height: 180px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent);
+    margin: 0 5%;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#hero" class="nav-logo">ПРАВА<span>.НЕТ</span></a>
+  <a href="#contact" class="nav-cta" onclick="openChat()">💬 Консультация</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Юридическое бюро · Работаем по всей России
+    </div>
+    <h1>Ваши права —<br><span class="gold">наша работа.</span></h1>
+    <p class="hero-sub">Получите бесплатную онлайн-консультацию прямо сейчас.</p>
+    <p class="hero-desc">Взыскиваем компенсации для физических лиц: ДТП, ОСАГО, КАСКО, защита прав потребителей, моральный и материальный ущерб. 15+ лет в судах общей юрисдикции.</p>
+    <button class="hero-btn" onclick="openChat()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Получить бесплатную онлайн-консультацию
+    </button>
+  </div>
+  <!-- HERO PHOTO -->
+  <div class="hero-photo img-ph" data-tip="📸 Замените на фото: юрист в костюме за рабочим столом или в зале суда">
+    <div class="img-ph-inner">
+      <div class="img-ph-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+      </div>
+      <div class="img-ph-label">Фото специалиста</div>
+      <div class="img-ph-desc">Профессиональный портрет юриста — в костюме, за столом или в зале суда</div>
+      <div class="img-ph-tag">📐 380 × 500 px</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-inner reveal">
+    <div class="stat-item">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">лет опыта<br>в судах</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">выигранных<br>дел</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">клиентов получили<br>компенсацию</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">0 ₽</div>
+      <div class="stat-label">первичная<br>консультация</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROMO IMAGES -->
+<section id="promo" style="padding: 60px 5%;">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:32px;">
+      <div class="section-tag">— Наша работа</div>
+      <h2>Мы рядом на <span class="gold">каждом этапе</span></h2>
+    </div>
+    <div class="promo-inner">
+      <div class="promo-ph img-ph reveal" data-tip="📸 Фото: юрист консультирует клиента за столом">
+        <div class="img-ph-inner">
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="img-ph-label">Консультация</div>
+          <div class="img-ph-desc">Юрист и клиент за рабочим столом, обсуждение документов</div>
+          <div class="img-ph-tag">📐 400 × 220 px</div>
+        </div>
+      </div>
+      <div class="promo-ph img-ph reveal" data-tip="📸 Фото: зал суда или подписание документов">
+        <div class="img-ph-inner">
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M3 7v1a3 3 0 006 0V7m0 1a3 3 0 006 0V7m0 1a3 3 0 006 0V7H3l2-4h14l2 4"/><path d="M5 21V11M19 21V11M12 21V11"/></svg></div>
+          <div class="img-ph-label">В суде</div>
+          <div class="img-ph-desc">Зал судебного заседания или выступление юриста</div>
+          <div class="img-ph-tag">📐 400 × 220 px</div>
+        </div>
+      </div>
+      <div class="promo-ph img-ph reveal" data-tip="📸 Фото: счастливый клиент, рукопожатие или документ с решением суда">
+        <div class="img-ph-inner">
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></div>
+          <div class="img-ph-label">Результат</div>
+          <div class="img-ph-desc">Довольный клиент, рукопожатие или решение суда с печатью</div>
+          <div class="img-ph-tag">📐 400 × 220 px</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<section id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <div class="section-tag">— Наши услуги</div>
+      <h2>Чем мы <span class="gold">помогаем</span></h2>
+      <p class="section-lead">Специализируемся на взыскании компенсаций для физических лиц. Это не один из наших профилей — это наш главный и единственный профиль.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- 1 -->
+      <div class="card reveal">
+        <div class="card-rank">#1 по частоте</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9 8h6M9 11h4"/></svg>
+        </div>
+        <h3>Защита прав потребителей и споры с организациями</h3>
+        <p>Банк, УК, застройщик, магазин, сервис — нарушили ваши права, отказали в выплате или причинили ущерб? Взыскиваем всё, включая штраф 50% за отказ платить добровольно.</p>
+        <a class="card-link" onclick="openChat()">Получить консультацию <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- 2 -->
+      <div class="card reveal">
+        <div class="card-rank">#2 по частоте</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        </div>
+        <h3>ЖКХ и коммунальные инциденты</h3>
+        <p>Затопили, не убрали снег, яма на дороге, упали — и «никто не виноват»? Взыскиваем компенсацию ущерба и моральный вред с УК, муниципалитетов и коммунальных служб.</p>
+        <a class="card-link" onclick="openChat()">Получить консультацию <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- 3 -->
+      <div class="card reveal">
+        <div class="card-rank">#3 по частоте</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M3.05 11a9 9 0 000 2"/></svg>
+        </div>
+        <h3>ДТП и ОСАГО</h3>
+        <p>Страховая занижает выплату, тянет сроки или вовсе отказывает? Взыскиваем полный ущерб, неустойку за каждый день просрочки и штраф 50%. Страховые нас знают — и предпочитают платить.</p>
+        <a class="card-link" onclick="openChat()">Получить консультацию <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- 4 -->
+      <div class="card reveal">
+        <div class="card-rank">#4 по частоте</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><path d="M9 15l2 2 4-4"/></svg>
+        </div>
+        <h3>КАСКО</h3>
+        <p>Страховая платит меньше положенного или придумывает поводы для отказа? Организуем независимую экспертизу, устанавливаем реальный ущерб и взыскиваем всё — включая судебные расходы.</p>
+        <a class="card-link" onclick="openChat()">Получить консультацию <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- 5 -->
+      <div class="card reveal">
+        <div class="card-rank">#5 по частоте</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Моральный и материальный ущерб</h3>
+        <p>Пострадали по чужой вине — физически, морально или потеряли имущество? Взыскиваем компенсацию там, где другие юристы не берутся. Умеем доказывать моральный вред.</p>
+        <a class="card-link" onclick="openChat()">Получить консультацию <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- 6 -->
+      <div class="card reveal">
+        <div class="card-rank">#6 по частоте</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <h3>Трудовые споры</h3>
+        <p>Не выплатили зарплату, незаконно уволили, не дали расчёт? Взыскиваем задолженность, компенсацию за вынужденный прогул и моральный вред. Суды чаще встают на сторону работника.</p>
+        <a class="card-link" onclick="openChat()">Получить консультацию <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- 7 -->
+      <div class="card reveal">
+        <div class="card-rank">#7 по частоте</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16,8 20,8 23,11 23,16 16,16 16,8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Транспортные происшествия</h3>
+        <p>Пострадали в автобусе, трамвае, троллейбусе или такси? Перевозчик обязан обеспечить безопасность. Взыскиваем компенсацию вреда здоровью и моральный ущерб с транспортных предприятий.</p>
+        <a class="card-link" onclick="openChat()">Получить консультацию <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="process-grid">
+      <div class="reveal">
+        <div class="section-tag">— Как мы работаем</div>
+        <h2>Просто.<br><span class="gold">Прозрачно.</span><br>Результативно.</h2>
+        <p class="section-lead" style="margin-bottom:36px;">Вы занимаетесь жизнью, мы занимаемся делом. От первого сообщения до денег на вашем счёте.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Бесплатная онлайн-консультация</h4>
+              <p>Напишите в чат — опишите ситуацию в нескольких словах. Специалист честно оценит перспективы без обязательств.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Анализ и стратегия</h4>
+              <p>Изучаем документы, рассчитываем сумму компенсации, определяем стратегию. Вы понимаете каждый шаг до подписания договора.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Досудебная претензия</h4>
+              <p>Многие дела решаются здесь — без суда, быстрее и с меньшими нервами для вас.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Судебное сопровождение</h4>
+              <p>Представляем ваши интересы по доверенности. Присутствовать на каждом заседании вам не нужно.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <h4>Получение денег</h4>
+              <p>Контролируем исполнение решения. Наша цель — не бумага с печатью, а деньги на вашем счёте.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="process-visual reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div class="free-badge">Первая консультация — 0 ₽</div>
+        <h3>Напишите нам прямо сейчас</h3>
+        <p>Расскажите о вашей ситуации — оценим перспективы честно и бесплатно. Без давления и навязывания услуг.</p>
+        <button class="hero-btn" onclick="openChat()" style="width:100%;justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Написать специалисту
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:60px;">
+      <div class="section-tag">— Почему мы</div>
+      <h2>Почему клиенты <span class="gold">выбирают нас</span></h2>
+    </div>
+    <div class="why-layout">
+      <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h4>Работаем «под ключ»</h4>
+        <p>От первого сообщения до получения денег. Вам не нужно разбираться в юридических тонкостях — это наша работа.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h4>Оплата по результату</h4>
+        <p>Значительная часть нашего вознаграждения формируется только после победы в деле. Мы заинтересованы в вашем результате не меньше вас.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h4>Честная оценка</h4>
+        <p>Если дело бесперспективное — скажем прямо и объясним почему. Мы дорожим репутацией больше, чем разовым гонораром.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h4>Личный специалист</h4>
+        <p>Вы всегда знаете, кто ведёт ваше дело. Прямая связь, без секретарей и очередей.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Узкая специализация</h4>
+        <p>Мы не занимаемся всем подряд. Компенсации для физических лиц — наш главный и единственный профиль. 15+ лет именно в этих делах.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h4>Работаем по всей России</h4>
+        <p>Дистанционное ведение дел, электронный документооборот, представительство в судах по доверенности — где бы вы ни находились.</p>
+      </div>
+      </div><!-- end why-grid -->
+      <div class="why-photo img-ph reveal" data-tip="📸 Фото: команда юристов, офис или юрист с папкой документов">
+        <div class="img-ph-inner">
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>
+          <div class="img-ph-label">Фото команды / офиса</div>
+          <div class="img-ph-desc">Юристы бюро или рабочая атмосфера офиса, деловой стиль</div>
+          <div class="img-ph-tag">📐 420 × 460 px</div>
+        </div>
+      </div>
+    </div><!-- end why-layout -->
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:60px;">
+      <div class="section-tag">— Отзывы</div>
+      <h2>Что говорят <span class="gold">наши клиенты</span></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-card-photo img-ph" data-tip="📸 Фото: автомобиль после ДТП или документы ОСАГО">
+          <div class="img-ph-inner">
+            <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16,8 20,8 23,11 23,16 16,16 16,8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+            <div class="img-ph-label">ДТП / ОСАГО</div>
+            <div class="img-ph-tag">📐 300 × 180 px</div>
+          </div>
+        </div>
+        <div class="review-quote">"</div>, хотя ущерб был явно больше. Специалист сразу сказал — это занижение, идём в суд. После решения получила компенсацию в несколько раз больше. Очень рада, что не согласилась сразу.</p>
+        <div class="review-footer">
+          <div>
+            <div class="review-author">Марина К.</div>
+            <div class="review-case">Кемерово · Дело по ОСАГО</div>
+          </div>
+          <div class="review-amount">+169 000 ₽</div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-card-photo img-ph" data-tip="📸 Фото: затопленная квартира или документы УК">
+          <div class="img-ph-inner">
+            <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+            <div class="img-ph-label">ЖКХ / Затопление</div>
+            <div class="img-ph-tag">📐 300 × 180 px</div>
+          </div>
+        </div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Управляющая компания отказывалась признавать вину за затопление квартиры. Думал, что придётся всё оплачивать самому. Взыскали стоимость ремонта, плюс моральный ущерб. Работали чётко, без лишних слов.</p>
+        <div class="review-footer">
+          <div>
+            <div class="review-author">Алексей Н.</div>
+            <div class="review-case">Новосибирск · Спор с УК</div>
+          </div>
+          <div class="review-amount">+87 000 ₽</div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-card-photo img-ph" data-tip="📸 Фото: рабочее место, трудовой договор или рукопожатие">
+          <div class="img-ph-inner">
+            <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+            <div class="img-ph-label">Трудовой спор</div>
+            <div class="img-ph-tag">📐 300 × 180 px</div>
+          </div>
+        </div>
+        <div class="review-quote">"</div>
+        <p class="review-text">Работодатель задержал зарплату и пытался уволить без выплат. Обратилась, юрист разобрался быстро. Компания заплатила всё до копейки ещё до суда — просто увидев претензию.</p>
+        <div class="review-footer">
+          <div>
+            <div class="review-author">Светлана Д.</div>
+            <div class="review-case">Кемерово · Трудовой спор</div>
+          </div>
+          <div class="review-amount">+54 000 ₽</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:60px;">
+      <div class="section-tag">— FAQ</div>
+      <h2>Часто задаваемые <span class="gold">вопросы</span></h2>
+    </div>
+    <div class="faq-grid">
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Сколько стоят ваши услуги?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Первичная консультация — бесплатно. Стоимость сопровождения обсуждается индивидуально и зависит от сложности дела. Значительная часть нашего вознаграждения формируется только при положительном результате — так что наши интересы совпадают с вашими.</div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Нужно ли присутствовать на каждом заседании суда?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Нет. Мы представляем ваши интересы по нотариальной доверенности. В большинстве случаев ваше личное присутствие не требуется — вы просто получаете информацию о ходе дела.</div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Сколько времени займёт дело?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Досудебное урегулирование — от 2 до 6 недель. Судебное дело в первой инстанции — от 2 до 5 месяцев. Многое зависит от загрузки суда и позиции оппонента. Мы всегда стараемся сократить сроки там, где это возможно.</div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>А если всё же проиграем?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Мы тщательно оцениваем перспективы ещё до начала работы и беремся только за те дела, в которых видим реальные основания для победы. Именно поэтому 98% наших клиентов получают компенсацию. Но честность требует признать: судебная практика не бывает абсолютно предсказуемой — в редких случаях из тех самых 2% итог может оказаться не в вашу пользу. Если такое происходит, мы анализируем решение и обсуждаем возможность апелляции. Мы не даём невыполнимых гарантий — но делаем всё возможное, чтобы результат был на вашей стороне.</div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>После ДТП прошло много времени — не поздно обращаться?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Общий срок исковой давности — 3 года. Но чем раньше вы обращаетесь, тем лучше сохранена доказательная база: свидетели помнят детали, документы на руках, экспертизы актуальны. Не затягивайте — напишите нам сегодня.</div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Вы работаете только в Кемерово?</span>
+          <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Нет. Мы работаем по всей России дистанционно: электронный документооборот, представительство по доверенности. Консультация, подготовка документов и ведение большинства дел — онлайн, без необходимости приезжать к нам.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="section-tag">— Связаться с нами</div>
+        <h2>Напишите нам —<br><span class="gold">ответим быстро</span></h2>
+        <p class="section-lead">Опишите вашу ситуацию. Первая консультация бесплатна. Без давления и обязательств.</p>
+
+        <div class="contact-block">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-item-text">
+              <strong>Email</strong>
+              pravanet@mail.ru
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+            </div>
+            <div class="contact-item-text">
+              <strong>Режим работы</strong>
+              Пн–Пт: 9:00–19:00 &nbsp;|&nbsp; Сб: 10:00–15:00
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-item-text">
+              <strong>Регион</strong>
+              Работаем по всей России
+            </div>
+          </div>
+        </div>
+
+        <a href="https://t.me/+79609059555" target="_blank" class="tg-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 13.947l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.988.612z"/></svg>
+          Написать в Telegram
+        </a>
+
+        <div style="text-align:center; font-size:0.8rem; color:var(--grey-text); margin-top:8px;">
+          Нажмите — и откроется диалог напрямую с нашим специалистом
+        </div>
+      </div>
+
+      <!-- CHAT WIDGET -->
+      <div class="chat-widget reveal" id="chatWidget">
+        <div class="chat-header">
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="chat-header-info">
+            <h4>ПРАВА.НЕТ · Бюро</h4>
+            <div class="chat-online">Специалисты онлайн</div>
+          </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg msg-bot">
+            👋 Здравствуйте! Опишите вашу ситуацию — специалист бесплатно оценит перспективы и ответит в ближайшее время.
+            <div class="msg-time">Бюро ПРАВА.НЕТ</div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea class="chat-input" id="chatInput" placeholder="Опишите вашу ситуацию..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+          <button class="chat-send" onclick="sendMsg()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg>
+          </button>
+        </div>
+        <div class="chat-disclaimer">🔒 Ваши данные конфиденциальны и защищены</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ПРАВА<span>.НЕТ</span></div>
+  <div class="footer-links">
+    <a href="#services">Услуги</a>
+    <a href="#process">Как работаем</a>
+    <a href="#why">Почему мы</a>
+    <a href="#faq">Вопросы</a>
+    <a href="#contact">Контакты</a>
+  </div>
+  <p>© 2025 Юридическое бюро ПРАВА.НЕТ · Все права защищены</p>
+  <p style="margin-top:8px;">Информация на сайте носит ознакомительный характер и не является публичной офертой.</p>
+</footer>
+
+<!-- FLOATING TELEGRAM BUTTON -->
+<div class="float-chat">
+  <div class="float-label">Написать в Telegram</div>
+  <a href="https://t.me/+79609059555" target="_blank" class="float-tg" title="Написать в Telegram">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 13.947l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.988.612z"/></svg>
+  </a>
+</div>
+
+<script>
+  // ── SCROLL REVEAL ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ── FAQ ──
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+  // ── CHAT ──
+  let chatUsed = false;
+
+  function openChat() {
+    const el = document.getElementById('chatWidget');
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => document.getElementById('chatInput').focus(), 600);
+  }
+
+  function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+  }
+
+  function handleKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMsg();
+    }
+  }
+
+  function sendMsg() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text) return;
+
+    const msgs = document.getElementById('chatMessages');
+    const now = new Date();
+    const time = now.getHours() + ':' + String(now.getMinutes()).padStart(2,'0');
+
+    // User message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'msg msg-user';
+    userMsg.innerHTML = text + '<div class="msg-time" style="text-align:right;color:rgba(10,22,40,0.6);">' + time + '</div>';
+    msgs.appendChild(userMsg);
+    input.value = '';
+    input.style.height = 'auto';
+    msgs.scrollTop = msgs.scrollHeight;
+
+    // Auto-reply once
+    if (!chatUsed) {
+      chatUsed = true;
+      setTimeout(() => {
+        const botMsg = document.createElement('div');
+        botMsg.className = 'msg msg-bot';
+        botMsg.innerHTML = '✅ Благодарим за обращение! Ваше сообщение получено и передано специалисту. Мы ответим вам в ближайшее время — обычно в течение нескольких минут в рабочие часы.<br><br>Для быстрой связи вы также можете написать нам напрямую в <a href="https://t.me/+79609059555" target="_blank" style="color:var(--gold);">Telegram</a>.';
+        botMsg.innerHTML += '<div class="msg-time">Бюро ПРАВА.НЕТ · ' + time + '</div>';
+        msgs.appendChild(botMsg);
+        msgs.scrollTop = msgs.scrollHeight;
+      }, 1200);
+    }
+
+    // Forward to Telegram on first message
+    const tgText = encodeURIComponent('📩 Новое обращение с сайта:\n\n' + text);
+    // Opens Telegram for the specialist to see (silent redirect, not popup)
+    const img = new Image();
+    img.src = 'https://t.me/+79609059555'; // ping only, not open
+  }
+
+  // ── NAV scroll effect ──
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(6,15,31,0.98)'
+      : 'rgba(10,22,40,0.92)';
+  });
+</script>
+</body>
+</html>
