@@ -1,1 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://суд42.рф/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+```
 
+Затем в Search Console → **Файлы Sitemap** → введите:
+```
+sitemap.xml
+```
+→ нажмите **Отправить**
+
+---
+
+## Шаг 2 — Запросить индексацию
+
+Search Console → **Проверка URL** → введите:
+```
+https://суд42.рф/
